@@ -8,9 +8,9 @@ public class Account {
 	
 	private String type;
 	
-	private List<Double> transactions;
+	private List<String> transactions;
 
-	public Account(double balance, String type, List<Double> transactions) {
+	public Account(double balance, String type, List<String> transactions) {
 		super();
 		this.balance = balance;
 		this.type = type;
@@ -33,11 +33,11 @@ public class Account {
 		this.type = type;
 	}
 
-	public List<Double> getTransactions() {
+	public List<String> getTransactions() {
 		return transactions;
 	}
 
-	public void setTransactions(List<Double> transactions) {
+	public void setTransactions(List<String> transactions) {
 		this.transactions = transactions;
 	}
 

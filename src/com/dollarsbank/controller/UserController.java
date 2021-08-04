@@ -6,7 +6,17 @@ public class UserController {
 
 	public static void createUser(Scanner sc) {
 		
-		public String username;
+		String username = null;
+		String password = null;
+		String name = null;
+		String address = null;
+		
+		boolean isRunning = true;
+		
+		while(isRunning) {
+			
+		}
+		
 		
 	}
 	

@@ -2,6 +2,8 @@ package com.dollarsbanks.ui;
 
 import java.util.Scanner;
 
+import com.dollarsbank.controller.UserController;
+
 public class UserUi {
 
 	public static void Run() {
@@ -25,10 +27,10 @@ public class UserUi {
 			
 			switch(entry) {
 				case "1":
-					EmsCommands.helpCommand();
+					UserController.createUser(userInput);
 					break;
 				case "2":
-					EmsCommands.createCommand(userInput);
+					UserController.loginUser(userInput);
 					break;
 				case "3":
 					System.out.println("\nExiting...");
