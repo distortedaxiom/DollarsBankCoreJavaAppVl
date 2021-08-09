@@ -6,14 +6,11 @@ public class Account {
 
 	private double balance;
 	
-	private String type;
-	
 	private List<String> transactions;
 
-	public Account(double balance, String type, List<String> transactions) {
+	public Account(double balance, List<String> transactions) {
 		super();
 		this.balance = balance;
-		this.type = type;
 		this.transactions = transactions;
 	}
 
@@ -25,13 +22,6 @@ public class Account {
 		this.balance = balance;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
 
 	public List<String> getTransactions() {
 		return transactions;
@@ -43,7 +33,7 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [balance=" + balance + ", type=" + type + ", transactions=" + transactions + "]";
+		return "Account [balance=" + balance + ", transactions=" + transactions + "]";
 	}
 	
 	

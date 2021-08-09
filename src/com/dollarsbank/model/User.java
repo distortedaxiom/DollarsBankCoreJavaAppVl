@@ -12,14 +12,14 @@ public class User {
 	
 	private String address;
 	
-	private List<Account> account;
+	private Account account;
 	
 	private int id;
 	
 	private static int count = 0;
 
 	public User(String username, String password, String name, String address,
-			List<Account> account) {
+			Account account) {
 		super();
 		count = count + 1;
 		this.id = count;
@@ -62,11 +62,11 @@ public class User {
 		this.address = address;
 	}
 
-	public List<Account> getAccount() {
+	public Account getAccount() {
 		return account;
 	}
 
-	public void setAccount(List<Account> account) {
+	public void setAccount(Account account) {
 		this.account = account;
 	}
 
