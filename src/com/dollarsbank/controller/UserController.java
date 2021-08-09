@@ -1,6 +1,7 @@
 package com.dollarsbank.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,16 +38,52 @@ public class UserController {
 			password = sc.nextLine();
 			
 			CurrentData.data.addUser(new User(username, password, name, address, accounts));
-			
-			CurrentData.data.getCurrentUsers().forEach((n) -> System.out.println(n.toString()));;
-			
+			System.out.println("Account created successfully");
+			break;
 		}
-		
-		
 		
 	}
 	
 	public static void loginUser(Scanner sc) {
+		
+		String username = null;
+		String password = null;
+		
+		boolean isRunning = true;
+		
+		while(isRunning) {
+			
+			boolean isLoggedIn = false;
+			
+			System.out.println("Enter your login information below");
+			System.out.println("------------------------------------");
+			System.out.println("Customer Username: ");
+			username = sc.nextLine();
+			System.out.println("Customer Password: ");
+			password = sc.nextLine();
+			
+			List<User> currentUsers = CurrentData.data.getCurrentUsers();
+			
+			Iterator<User> userIterator = currentUsers.iterator();
+			
+			while(userIterator.hasNext()) {
+				User currentUser = userIterator.next();
+				String currentUsername = currentUser.getUsername();
+				String currentPassword = currentUser.getPassword();
+				if (currentUsername.equals(username) && currentPassword.equals(password)) {
+					System.out.println("Login Success");
+					isLoggedIn = true;
+					break;
+				}
+			}
+			
+			if (isLoggedIn == false) {
+				System.out.println("Invalid username and password");
+			}
+			
+			isRunning = false;
+			
+		}
 		
 	}
 	

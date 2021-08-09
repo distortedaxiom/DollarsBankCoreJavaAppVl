@@ -8,19 +8,17 @@ public class UserUi {
 
 	public static void Run() {
 		
-		System.out.println("\nWelcome to DOLLARBANKS \n");
-		System.out.println("Please select one of the option below\n");
-		System.out.println("-----------------------------------------\n");
-		System.out.println("1. Create New Account");
-		System.out.println("2. Login");
-		System.out.println("3. Exit");
-		
-		
-		System.out.print("> ");
-		
 		boolean isRunning = true;
 		
 		while(isRunning == true) {
+			
+			System.out.println("\nWelcome to DOLLARBANKS \n");
+			System.out.println("Please select one of the option below\n");
+			System.out.println("-----------------------------------------\n");
+			System.out.println("1. Create New Account");
+			System.out.println("2. Login");
+			System.out.println("3. Exit");
+			System.out.print("> ");
 			
 			Scanner userInput = new Scanner(System.in);
 			String entry = userInput.nextLine();
