@@ -1,19 +1,30 @@
 package com.dollarsbanks.ui;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.dollarsbank.controller.BankController;
 import com.dollarsbank.model.User;
+import com.dollarsbanks.util.CurrentData;
 
 public class AccountUi {
 
 	public static void Run(User user) {
 		
-		User currentUser = user;
-		
 		boolean isRunning = true;
 		
 		while(isRunning == true) {
+			
+			User currentUser = user;
+			
+			List<User> currentUsersList = CurrentData.data.getCurrentUsers();
+			
+			for (User u : currentUsersList) {
+				if (u.getUsername().equals(user.getUsername())) {
+					currentUser = u;
+				}
+			}
 			
 			System.out.println("\nWelcome to DOLLARBANKS \n");
 			System.out.println("Please select one of the option below\n");
@@ -34,10 +45,13 @@ public class AccountUi {
 					BankController.deposit(currentUser);
 					break;
 				case "2":
+					BankController.withdraw(currentUser);
 					break;
 				case "3":
-					System.out.println("\nExiting...");
-					isRunning = false;
+					BankController.fundTransfer(currentUser);
+					break;
+				case "4":
+					BankController.viewTransactions(currentUser);
 					break;
 				default:
 					System.out.println("\nCommand not found\n");

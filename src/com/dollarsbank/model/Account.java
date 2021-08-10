@@ -21,6 +21,10 @@ public class Account {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+	
+	public void addTransactions(String s) {
+		transactions.add(s);
+	}
 
 
 	public List<String> getTransactions() {
