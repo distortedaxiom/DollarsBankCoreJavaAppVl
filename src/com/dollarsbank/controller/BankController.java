@@ -1,6 +1,8 @@
 package com.dollarsbank.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +13,9 @@ import com.dollarsbanks.util.DataInstance;
 public class BankController {
 
 	public static void deposit(User user) {
+		
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
 		
 		System.out.println("How much do you want to deposit?");
 		Scanner userInput = new Scanner(System.in);
@@ -24,13 +29,16 @@ public class BankController {
 				u.getAccount().setBalance(balance + (double) depositAmt);
 				System.out.println(depositAmt + " dollars has been added to your account");
 				System.out.println("Your current balance is " + u.getAccount().getBalance());
-				u.getAccount().addTransactions(depositAmt + " has been deposited");
+				u.getAccount().addTransactions(depositAmt + " has been deposited on " + formatter.format(date));
 			}
 		}
 		
 	}
 	
 	public static void withdraw(User user) {
+		
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		
 		System.out.println("How much do you want to withdraw?");	
 		Scanner userInput = new Scanner(System.in);
@@ -51,6 +59,9 @@ public class BankController {
 	}
 	
 	public static void fundTransfer(User user) {
+		
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		
 		System.out.println("Which user would you like to transfer your money to?");	
 		Scanner userInput = new Scanner(System.in);
@@ -96,6 +107,17 @@ public class BankController {
 				break;
 			}
 		}
+	}
+	
+	public static void customerInformation(User user) {
+		
+		System.out.println("Your user information is below");
+		
+		System.out.println("Username: " + user.getUsername());
+		System.out.println("Full Name: " + user.getName());
+		System.out.println("Address: " + user.getAddress());
+		System.out.println("Balance:" + user.getAccount().getBalance());
+		
 	}
 	
 }

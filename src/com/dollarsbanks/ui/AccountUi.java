@@ -53,6 +53,12 @@ public class AccountUi {
 				case "4":
 					BankController.viewTransactions(currentUser);
 					break;
+				case "5":
+					BankController.customerInformation(currentUser);
+					break;
+				case "6":
+					isRunning = false;
+					break;
 				default:
 					System.out.println("\nCommand not found\n");
 					System.out.print("> ");

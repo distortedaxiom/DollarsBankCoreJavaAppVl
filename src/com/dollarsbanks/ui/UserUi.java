@@ -32,6 +32,7 @@ public class UserUi {
 					break;
 				case "3":
 					System.out.println("\nExiting...");
+					System.out.println("Process terminated");
 					isRunning = false;
 					break;
 				default:
