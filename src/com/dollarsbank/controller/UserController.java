@@ -21,7 +21,7 @@ public class UserController {
 		String address = null;
 		Account account = new Account(0, new ArrayList<>());
 		List<User> users = new ArrayList<>();
-		
+		boolean alreadyExist = false;
 		
 		boolean isRunning = true;
 		
@@ -38,9 +38,21 @@ public class UserController {
 			System.out.println("Customer Password: ");
 			password = sc.nextLine();
 			
-			CurrentData.data.addUser(new User(username, password, name, address, account));
-			System.out.println("Account created successfully");
-			break;
+			List<User> currentUsers = CurrentData.data.getCurrentUsers();
+			
+			for (User u : currentUsers) {
+				if (u.getUsername().equals(username)) {
+					System.out.println("That username has already been taken, please try again");
+					alreadyExist = true;
+				}
+			}
+			
+			if (alreadyExist == false) {
+				CurrentData.data.addUser(new User(username, password, name, address, account));
+				System.out.println("Account created successfully");
+			}
+			
+			isRunning = false;
 		}
 		
 	}
